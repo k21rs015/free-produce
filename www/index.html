@@ -12,11 +12,11 @@
   <script>
     let ncmb = new NCMB(appKey, clientKey);
     let UTdata = ncmb.DataStore("Team");
-    let key = "score";
+    let key = "name";
 
     function enterData() {
       let uTdata = new UTdata();
-      let value = parseInt($("#data").val());
+      var value = $("#value").val();
       uTdata.set(key, value)
         .save()
         .then(function(results) {
