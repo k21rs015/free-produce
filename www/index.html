@@ -109,15 +109,21 @@
             $("#display").html("update success");
         })
         .catch(function(error){
-           $("#display").removeClass();
-          $("#display").addClass("bg-warning");
-          $("#display").html("delete fail:" + JSON.stringify(error)
+            $("#display").removeClass();
+            $("#display").addClass("bg-warning");
+            $("#display").html("delete fail:" + JSON.stringify(error)
           );
         })        
     }
 
     function team(){
-        
+        UTdata.fetch()
+        .then(function(results){
+            let msg = "";
+            for (let i = 0; i < results.length; i++) {
+                msg += results[i].get(key) + "<br>";
+                }
+        }
     }
     /*
         const total = 3;
