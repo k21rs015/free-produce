@@ -133,6 +133,16 @@
                         }
                         return t;
                     }
+                    for (let i = 0; i < total; i++) {
+                        const grouping = s(t2).splice(0, numberPerTeam + (i < moduloMembers));
+                        if (i == 0) {
+                            document.write("A:" +"," + grouping + "</br>");
+                        } else if (i == 1) {
+                            document.write("B:" + "," + grouping + "</br>");
+                        } else if (i == 2) {
+                            document.write("C:" + "," + grouping);
+                        }
+                    }
                 })
                 .then(function(results) {
                     $("#display").removeClass();
