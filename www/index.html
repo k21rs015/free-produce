@@ -120,6 +120,9 @@
             UTdata.fetchAll()
                 .then(function(results) {
                     let t = [];
+                    let a;
+                    let b;
+                    let c;
                     for (let i = 0; i < results.length; i++) {
                         t[i] = results[i].get(key);
                     }
@@ -136,11 +139,11 @@
                     for (let i = 0; i < total; i++) {
                         const grouping = s(t2).splice(0, numberPerTeam + (i < moduloMembers));
                         if (i == 0) {
-                            document.write("A:" +"," + grouping + "</br>");
+                            a = "A:" +"," + grouping + "</br>";
                         } else if (i == 1) {
-                            document.write("B:" + "," + grouping + "</br>");
+                            b = "B:" + "," + grouping + "</br>";
                         } else if (i == 2) {
-                            document.write("C:" + "," + grouping);
+                            c = "C:" + "," + grouping;
                         }
                     }
                 })
@@ -148,7 +151,7 @@
                     $("#display").removeClass();
                     $("#display").addClass("text-light");
                     $("#display").addClass("bg-primary");
-                    $("#display").html(t[0]);
+                    $("#display").html(a + b + c);
                 })
                 .catch(function(error) {
                     $("#display").removeClass();
