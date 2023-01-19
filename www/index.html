@@ -120,38 +120,13 @@
             UTdata.fetchAll()
                 .then(function(results) {
                     let t = [];
-                    let a;
-                    let b;
-                    let c;
                     for (let i = 0; i < results.length; i++) {
-                        t[i] = results[i].get(key);
+                        t[i] = results[i].get(key) + "<br>";
                     }
-                    const total = 3;
-                    const numberPerTeam = Math.floor(t.length / total);
-                    const moduloMembers = t.length % total;
-                    const s = members => {
-                        for (let i = t.length - 1; i > 0; i--) {
-                            const j = Math.floor(Math.random() * (i + 1));
-                            [t[i], t[j]] = [t[j], t[i]];
-                        }
-                        return t;
-                    }
-                    for (let i = 0; i < total; i++) {
-                        const grouping = s(t2).splice(0, numberPerTeam + (i < moduloMembers));
-                        if (i == 0) {
-                            a = "A:" +"," + grouping + "</br>";
-                        } else if (i == 1) {
-                            b = "B:" + "," + grouping + "</br>";
-                        } else if (i == 2) {
-                            c = "C:" + "," + grouping;
-                        }
-                    }
-                })
-                .then(function(results) {
                     $("#display").removeClass();
                     $("#display").addClass("text-light");
                     $("#display").addClass("bg-primary");
-                    $("#display").html(a + b + c);
+                    $("#display").html(t[0]);
                 })
                 .catch(function(error) {
                     $("#display").removeClass();
