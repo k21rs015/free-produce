@@ -121,7 +121,7 @@
                 .then(function(results) {
                     let t = [];
                     for (let i = 0; i < results.length; i++) {
-                        t[i] = results[i].get(key) + "<br>";
+                        t[i] = results[i].get(key);
                     }
                     $("#display").removeClass();
                     $("#display").addClass("text-light");
