@@ -121,12 +121,26 @@
                 .then(function(results) {
                     let t = [];
                     for (let i = 0; i < results.length; i++) {
-                        ta[i] = results[i].get(key);
+                        t[i] = results[i].get(key);
                     }
+                    /*
+                    const total = 3;
+                    const numberPerTeam = Math.floor(t.length / total);
+                    const moduloMembers = t.length % total;
+                    const s = members => {
+                        for (let i = t.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [t[i], t[j]] = [t[j], t[i]];
+                        }
+                        return t;
+                    }
+                    */
+                })
+                .then(function(results) {
                     $("#display").removeClass();
                     $("#display").addClass("text-light");
                     $("#display").addClass("bg-primary");
-                    $("#display").html(ta[2]);
+                    $("#display").html(t[0]);
                 })
                 .catch(function(error) {
                     $("#display").removeClass();
