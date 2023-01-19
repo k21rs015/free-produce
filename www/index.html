@@ -136,10 +136,20 @@
                         }
                         return t;
                     }
+                    for (let i = 0; i < total; i++) {
+                        const grouping = s(t).splice(0, numberPerTeam + (i < moduloMembers));
+                        if (i == 0) {
+                            a = "A:" + "," + grouping + "</br>";
+                        } else if (i == 1) {
+                            b = "B:" + "," + grouping + "</br>";
+                        } else if (i == 2) {
+                            c = "C:" + "," + grouping;
+                        }
+                    }
                     $("#display").removeClass();
                     $("#display").addClass("text-light");
                     $("#display").addClass("bg-primary");
-                    $("#display").html(t[0]);
+                    $("#display").html(a + b + c);
                 })
                 .catch(function(error) {
                     $("#display").removeClass();
